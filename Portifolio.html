@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex's Portfolio</title>
+  <link rel="stylesheet" href="portfolio style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" type="image/png" href="main2.webp">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Alex</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <section id="home" class="home">
+    <div class="profile">
+      <img src="main2.webp" alt="Alex">
+    </div>
+    <div class="intro">
+      <h1>Hi, It's <span>Alex</span></h1>
+      <h2>I'm a <span class="typing-text"></span></h2>
+      <p>Alex, a skilled web developer, creates innovative and user-friendly websites.</p>
+      <div class="social-icons">
+       <a href="#"><i class="fa fa-pencil-alt"></i></a>
+        <a href="#"><i class="fa fa-database"></i></a>
+        <a href="#"><i class="fa fa-cloud"></i></a>
+        <a href="#"><i class="fa fa-laptop-code"></i></a>
+      </div>
+      <button class="hire-btn">Hire Me</button>
+    </div>
+  </section>
+
+ <script>
+  const roles = ["Artist", "Developer", "Web Designer", "Script Writer"];
+let roleIndex = 0;
+let charIndex = 0;
+const typingText = document.querySelector(".typing-text");
+
+function type() {
+  if (charIndex < roles[roleIndex].length) {
+    typingText.textContent += roles[roleIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, 150);
+  } else {
+    setTimeout(erase, 1000);
+  }
+}
+
+function erase() {
+  if (charIndex > 0) {
+    typingText.textContent = roles[roleIndex].substring(0, charIndex - 1);
+    charIndex--;
+    setTimeout(erase, 100);
+  } else {
+    roleIndex = (roleIndex + 1) % roles.length;
+    setTimeout(type, 500);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  type();
+});
+ </script>
+</body>
+</html>
